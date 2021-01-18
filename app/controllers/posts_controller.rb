@@ -1,8 +1,7 @@
 class PostsController < ApplicationController
-  def index  
+  def index
     @posts = Post.all.order(id: "DESC")
   end
-
 
   def create
     Post.create(content: params[:content])
@@ -16,8 +15,8 @@ class PostsController < ApplicationController
     else
       post.update(checked: true)
     end
-
-    item =Post.find(params[:id])
+    item = Post.find(params[:id])
     render json: { post: item }
   end
+
 end
